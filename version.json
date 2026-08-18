@@ -1,6 +1,11 @@
 {
   "version": "1.0.0",
+  "repo": "xzdlmindpower/AIANGEL666",
+  "pages_url": "https://xzdlmindpower.github.io/AIANGEL666/",
+  "deploy_date": "2026-08-18",
   "changes": [
-    "初始版本：艾安琪酒红主题H5邀请函（8屏滑动+音乐+动画）"
+    "初始版本：艾安琪酒红主题H5邀请函（8屏滑动+音乐+动画）",
+    "轮播框改16:9横版，匹配横构图新品/培训图",
+    "场馆图规范为png；资源全部相对路径，适配Project Pages子路径"
   ]
 }
