@@ -17,11 +17,11 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 .serif{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",STSong,serif;}
-.h5{height:100dvh;overflow-y:scroll;scroll-snap-type:y proximity;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;}
+.h5{height:100dvh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;}
 .h5::-webkit-scrollbar{display:none;}
 .screen{
-  min-height:100dvh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;
-  justify-content:safe center;align-items:center;padding:7vh 8vw;text-align:center;overflow:hidden;
+  height:100dvh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;padding:7vh 8vw;text-align:center;overflow:hidden;
   background:radial-gradient(135% 105% at 50% -18%, #e85d4c 0%, #d0302a 36%, var(--wine) 72%, var(--wine-deep) 100%);
 }
 .screen::before{
@@ -49,7 +49,7 @@ body{
 .screen.cream .cta{border-color:var(--wine-deep);color:var(--wine-deep);background:rgba(122,16,16,.04);}
 .screen.cream .cta:hover{background:var(--wine-deep);color:var(--cream);}
 .s7 .body{font-size:clamp(15px,4.6vw,21px);line-height:2;}
-/* 长屏改为容器整体滚动，不再嵌套 scroll-y，避免与整屏滑动冲突 */
+.screen.scroll-y{overflow-y:auto;justify-content:flex-start;padding-top:7vh;-webkit-overflow-scrolling:touch;}
 .s2 .invite{position:relative;max-width:600px;width:100%;padding:5vh 7vw;border:1px solid rgba(181,16,16,.22);border-radius:8px;background:rgba(181,16,16,.02);overflow:hidden;}
 .s2 .invite::before{content:"";position:absolute;inset:0;background:url(assets/logo.png) center/58% no-repeat;opacity:.05;pointer-events:none;}
 .s2 .body{font-size:clamp(17px,5vw,23px);line-height:2.1;position:relative;}
@@ -221,7 +221,7 @@ h1.title{
   </section>
 
   <!-- 5 特训营日程 -->
-  <section class="screen cream" id="s5">
+  <section class="screen cream scroll-y" id="s5">
     <div class="ptitle serif dk reveal">特训营 · 前2天日程</div>
     <div class="gold-line reveal d1"></div>
     <div class="sched reveal d2">
@@ -238,7 +238,7 @@ h1.title{
   </section>
 
   <!-- 5b 订货会日程 -->
-  <section class="screen cream" id="s5b">
+  <section class="screen cream scroll-y" id="s5b">
     <div class="ptitle serif dk reveal">订货会 · 后2天</div>
     <div class="gold-line reveal d1"></div>
     <img class="venue reveal d2" src="assets/venue.jpg" alt="艾安琪国际智造园">
@@ -252,7 +252,7 @@ h1.title{
   </section>
 
   <!-- 6 讲师 -->
-  <section class="screen cream" id="s6">
+  <section class="screen cream scroll-y" id="s6">
     <img class="teacher reveal" src="assets/teacher.jpg" alt="艾米老师">
     <div class="carousel reveal d1" style="min-height:26vh;max-width:400px;margin:1vh auto">
       <img class="active" src="assets/teacher_live5.jpg" alt="授课现场">
@@ -275,7 +275,7 @@ h1.title{
   </section>
 
   <!-- 7 报名 -->
-  <section class="screen cream" id="s7">
+  <section class="screen cream scroll-y" id="s7">
     <div class="ptitle serif dk reveal">报名信息</div>
     <div class="gold-line reveal d1"></div>
     <img class="venue reveal d2" src="assets/venue1.jpg" alt="艾安琪国际智造园">
