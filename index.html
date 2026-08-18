@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+<title>艾安琪2027春季新品发布会 · 邀请函</title>
+<style>
+:root{
+  --wine:#8B1A2B; --wine-deep:#6B1A2B; --gold:#C9A96E; --gold-bright:#D4AF37;
+  --cream:#F5F0E8; --cream-2:#EDE6D5;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;
+  background:#1a0a0e;color:var(--cream);overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+.serif{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",STSong,serif;}
+.h5{height:100dvh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;}
+.h5::-webkit-scrollbar{display:none;}
+.screen{
+  height:100dvh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;padding:9vh 8vw;text-align:center;overflow:hidden;
+  background:radial-gradient(130% 90% at 50% -10%, #a52c41 0%, var(--wine) 45%, var(--wine-deep) 100%);
+}
+.screen::before{
+  content:"";position:absolute;width:140vmax;height:140vmax;top:-50vmax;left:50%;transform:translateX(-50%);
+  background:radial-gradient(circle, rgba(201,169,110,0.10) 0%, rgba(201,169,110,0) 60%);
+  animation:halo 9s ease-in-out infinite alternate;pointer-events:none;
+}
+@keyframes halo{from{transform:translateX(-50%) scale(1);opacity:.7;}to{transform:translateX(-50%) scale(1.15);opacity:1;}}
+.screen.cream{background:radial-gradient(130% 90% at 50% -10%, #fffdf8 0%, var(--cream) 45%, var(--cream-2) 100%);color:var(--wine-deep);}
+.screen.cream::before{background:radial-gradient(circle, rgba(139,26,43,0.06) 0%, rgba(139,26,43,0) 60%);}
+
+.logo{width:42%;max-width:220px;margin-bottom:4vh;filter:drop-shadow(0 4px 14px rgba(0,0,0,.4));}
+.brand{letter-spacing:.32em;font-size:clamp(13px,3.4vw,18px);color:var(--gold);margin-bottom:3vh;}
+h1.title{
+  font-size:clamp(34px,9.5vw,62px);line-height:1.15;color:var(--gold-bright);font-weight:700;
+  text-shadow:0 2px 18px rgba(212,175,55,.35);margin-bottom:2.4vh;letter-spacing:.04em;
+}
+.subtitle{font-size:clamp(16px,4.4vw,22px);color:var(--cream);opacity:.95;margin-bottom:1.6vh;letter-spacing:.06em;}
+.camp{font-size:clamp(14px,3.8vw,19px);color:var(--gold);margin-bottom:3vh;letter-spacing:.03em;}
+.meta{font-size:clamp(13px,3.4vw,17px);color:rgba(245,240,232,.85);margin-bottom:1.2vh;letter-spacing:.05em;}
+.gold-line{width:54px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:2.4vh auto;}
+
+/* 倒计时 */
+.countdown{display:flex;gap:3vw;justify-content:center;margin:2.5vh 0 1vh;}
+.cd-box{display:flex;flex-direction:column;align-items:center;min-width:14vw;}
+.cd-num{font-family:"Noto Serif SC",serif;font-size:clamp(26px,8vw,46px);font-weight:700;color:var(--gold-bright);line-height:1;
+  text-shadow:0 2px 12px rgba(212,175,55,.4);font-variant-numeric:tabular-nums;}
+.cd-lab{font-size:clamp(10px,2.8vw,13px);color:rgba(245,240,232,.7);margin-top:.6vh;letter-spacing:.1em;}
+.cd-tip{font-size:clamp(11px,3vw,14px);color:var(--gold);letter-spacing:.1em;margin-top:1vh;}
+
+/* 按钮 */
+.cta{
+  margin-top:3.4vh;display:inline-block;padding:13px 38px;border:1.5px solid var(--gold);
+  color:var(--gold-bright);font-size:clamp(15px,4vw,18px);letter-spacing:.18em;border-radius:40px;
+  background:rgba(201,169,110,.06);cursor:pointer;transition:.35s;text-decoration:none;
+  backdrop-filter:blur(2px);
+}
+.cta:hover,.cta:active{background:var(--gold);color:var(--wine-deep);box-shadow:0 6px 22px rgba(201,169,110,.45);transform:translateY(-2px);}
+.cta.dark{border-color:var(--wine);color:var(--wine);background:rgba(139,26,43,.05);}
+.cta.dark:hover{background:var(--wine);color:var(--cream);}
+
+.ptitle{font-family:"Noto Serif SC",serif;font-size:clamp(24px,6.6vw,38px);color:var(--gold-bright);margin-bottom:1vh;letter-spacing:.05em;}
+.ptitle.dk{color:var(--wine);}
+.quote{font-family:"Noto Serif SC",serif;font-size:clamp(18px,5vw,26px);color:var(--gold);line-height:1.5;margin:2.5vh 0;letter-spacing:.04em;}
+.body{font-size:clamp(14px,3.9vw,18px);line-height:2;color:rgba(245,240,232,.92);letter-spacing:.02em;max-width:640px;}
+.cream .body{color:rgba(107,26,43,.9);}
+.list{text-align:left;max-width:600px;margin:1.5vh auto;}
+.list li{list-style:none;font-size:clamp(14px,3.9vw,18px);line-height:1.85;color:rgba(245,240,232,.93);
+  padding:1.1vh 0 1.1vh 2.2em;position:relative;border-bottom:1px solid rgba(201,169,110,.18);letter-spacing:.01em;}
+.cream .list li{color:rgba(107,26,43,.88);border-bottom:1px solid rgba(139,26,43,.12);}
+.list li::before{content:"◆";position:absolute;left:.4em;color:var(--gold);font-size:.8em;top:1.5vh;}
+.goldbig{color:var(--gold-bright);font-weight:700;}
+
+/* 日程 */
+.sched{text-align:left;max-width:620px;width:100%;margin:1vh auto;}
+.day{font-family:"Noto Serif SC",serif;font-size:clamp(17px,4.6vw,22px);color:var(--gold);margin:2.4vh 0 1vh;letter-spacing:.04em;}
+.slot{font-size:clamp(13px,3.6vw,16px);line-height:1.7;color:rgba(245,240,232,.9);padding:.8vh 0 .8vh 0;border-left:2px solid rgba(201,169,110,.35);padding-left:1.1em;margin:.6vh 0;}
+.slot b{color:var(--gold-bright);}
+.cream .slot{color:rgba(107,26,43,.85);}
+
+/* 轮播 */
+.carousel{width:100%;max-width:440px;margin:2vh auto;position:relative;border-radius:14px;overflow:hidden;
+  box-shadow:0 10px 34px rgba(0,0,0,.45);border:1px solid rgba(201,169,110,.4);aspect-ratio:16/9;min-height:34vh;background:#1a0a0f;}
+.carousel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s;}
+.carousel img.active{opacity:1;}
+.dots{display:flex;gap:8px;justify-content:center;margin-top:1.4vh;}
+.dots i{width:7px;height:7px;border-radius:50%;background:rgba(201,169,110,.35);transition:.3s;}
+.dots i.on{background:var(--gold-bright);transform:scale(1.3);}
+
+/* 讲师 */
+.teacher{width:46%;max-width:200px;border-radius:14px;border:2px solid var(--gold);
+  box-shadow:0 10px 30px rgba(0,0,0,.5);margin-bottom:2.4vh;object-fit:cover;aspect-ratio:3/4;}
+.tname{font-family:"Noto Serif SC",serif;font-size:clamp(22px,6vw,30px);color:var(--gold-bright);margin-bottom:.6vh;}
+.trole{font-size:clamp(13px,3.6vw,16px);color:var(--gold);margin-bottom:1.8vh;letter-spacing:.04em;}
+.tinfo{font-size:clamp(13px,3.6vw,16px);line-height:1.9;color:rgba(245,240,232,.9);max-width:560px;}
+.tinfo b{color:var(--gold-bright);}
+
+/* 报名/结尾 */
+.venue{width:100%;max-width:440px;border-radius:12px;margin:1.6vh auto;box-shadow:0 8px 26px rgba(0,0,0,.4);border:1px solid rgba(201,169,110,.35);}
+.qr{width:42%;max-width:180px;margin:1.4vh auto;border-radius:10px;background:#fff;padding:10px;box-shadow:0 6px 20px rgba(0,0,0,.35);}
+.qr-lab{font-size:clamp(12px,3.2vw,15px);color:var(--gold);margin-top:.8vh;letter-spacing:.05em;}
+.orgs{font-size:clamp(11px,3vw,14px);color:rgba(245,240,232,.75);line-height:2;margin-top:2.4vh;letter-spacing:.02em;}
+.cream .orgs{color:rgba(107,26,43,.7);}
+
+/* 音乐按钮 */
+.music-btn{position:fixed;right:18px;bottom:22px;width:46px;height:46px;border-radius:50%;
+  background:rgba(107,26,43,.78);border:1.5px solid var(--gold);color:var(--gold-bright);
+  display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;z-index:50;
+  box-shadow:0 4px 16px rgba(0,0,0,.4);backdrop-filter:blur(3px);transition:.3s;}
+.music-btn.playing{animation:spin 4s linear infinite;border-color:var(--gold-bright);}
+@keyframes spin{to{transform:rotate(360deg);}}
+.music-tip{position:fixed;right:18px;bottom:74px;font-size:11px;color:var(--gold);background:rgba(107,26,43,.7);
+  padding:3px 9px;border-radius:10px;z-index:50;opacity:0;transition:.4s;pointer-events:none;}
+.music-tip.show{opacity:1;}
+
+/* 滚动提示 */
+.scroll-hint{position:absolute;bottom:3.2vh;left:50%;transform:translateX(-50%);color:var(--gold);font-size:12px;
+  letter-spacing:.2em;animation:bob 1.8s ease-in-out infinite;opacity:.8;}
+@keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
+
+/* 入场动画 */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease;}
+.reveal.show{opacity:1;transform:translateY(0);}
+.reveal.d1{transition-delay:.12s;}.reveal.d2{transition-delay:.24s;}.reveal.d3{transition-delay:.36s;}
+.reveal.d4{transition-delay:.48s;}.reveal.d5{transition-delay:.60s;}
+
+.progress{position:fixed;right:10px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:9px;}
+.progress i{width:7px;height:7px;border-radius:50%;background:rgba(201,169,110,.35);transition:.3s;}
+.progress i.on{background:var(--gold-bright);height:18px;border-radius:4px;}
+</style>
+</head>
+<body>
+<div class="h5" id="h5">
+
+  <!-- 1 封面 -->
+  <section class="screen" id="s1">
+    <img class="logo reveal" src="assets/logo.png" alt="艾安琪">
+    <div class="brand reveal d1">AIANGEL · MI&amp;GO · AIPALA</div>
+    <h1 class="title serif reveal d2">决战私域 智胜未来</h1>
+    <div class="subtitle reveal d3">2027年春季新品发布会</div>
+    <div class="camp reveal d3">暨《AI+新零售·单店增长系统》特训营</div>
+    <div class="gold-line reveal d4"></div>
+    <div class="meta reveal d4">9月7日–10日 · 艾安琪国际智造园</div>
+    <div class="countdown reveal d5" id="cd">
+      <div class="cd-box"><span class="cd-num" id="cd-d">00</span><span class="cd-lab">天</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-h">00</span><span class="cd-lab">时</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-m">00</span><span class="cd-lab">分</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-s">00</span><span class="cd-lab">秒</span></div>
+    </div>
+    <div class="cd-tip reveal d5">距盛大开幕</div>
+    <a class="cta reveal d5" data-target="s7">立即报名</a>
+    <div class="scroll-hint">上滑了解更多 ↑</div>
+  </section>
+
+  <!-- 2 邀请语 -->
+  <section class="screen" id="s2">
+    <div class="ptitle serif reveal">致艾安琪全国加盟商伙伴</div>
+    <div class="gold-line reveal d1"></div>
+    <div class="body reveal d2">市场在变，消费者在变，但艾安琪与你并肩作战的决心，从未改变。</div>
+    <div class="body reveal d3">2027，不是等待的一年，是行动的一年。</div>
+    <div class="body reveal d4">这一次，我们不只谈订货，更谈怎么把货卖出去、把人留住。</div>
+    <div class="quote serif reveal d5">你不是一个人在战斗。</div>
+    <a class="cta reveal d5" data-target="s3">了解课程</a>
+  </section>
+
+  <!-- 3 课程背景 -->
+  <section class="screen cream" id="s3">
+    <div class="ptitle serif dk reveal">为什么你一定要来？</div>
+    <div class="gold-line reveal d1" style="background:linear-gradient(90deg,transparent,var(--wine),transparent)"></div>
+    <ul class="list reveal d2">
+      <li>不是生意难做了，是做生意的方式变了。</li>
+      <li>你的门店里，躺着 <span class="goldbig">1500–5000</span> 个沉睡VIP——这是看不见的客流。</li>
+      <li>服装行业最后的红利——私域社群。</li>
+      <li>女装不做社群？等于把客户往别人店里送。</li>
+      <li>淘汰你的不是AI，而比你更会用AI的人。</li>
+    </ul>
+    <div class="quote serif reveal d4" style="color:var(--wine)">经营的本质，是经营人心。<br>人心经营好了，业绩自然来。</div>
+    <a class="cta dark reveal d5" data-target="s4">查看收益</a>
+  </section>
+
+  <!-- 4 课程收益 -->
+  <section class="screen" id="s4">
+    <div class="ptitle serif reveal">2天2夜，你将带走4样武器</div>
+    <div class="gold-line reveal d1"></div>
+    <ul class="list reveal d2">
+      <li>一套科学订货方法论——读懂VIP，才能订对货。</li>
+      <li>一张AI工具地图——用AI武装你的店。</li>
+      <li>一套社群SOP——简单、易学、好用，照着做，社群自己转。</li>
+      <li>一份30天执行承诺书——不是"我学了"，是"我做到了"。</li>
+    </ul>
+    <a class="cta reveal d4" data-target="s5">查看日程</a>
+  </section>
+
+  <!-- 5 日程 -->
+  <section class="screen cream" id="s5">
+    <div class="ptitle serif dk reveal">2天2夜特训营 · 日程</div>
+    <div class="gold-line reveal d1" style="background:linear-gradient(90deg,transparent,var(--wine),transparent)"></div>
+    <div class="carousel reveal d2">
+      <img class="active" src="assets/product1.jpg" alt="春季新品">
+      <img src="assets/product2.jpg" alt="春季新品">
+      <img src="assets/product3.jpg" alt="春季新品">
+    </div>
+    <div class="dots reveal d2" id="dots"><i class="on"></i><i></i><i></i></div>
+    <div class="sched reveal d3">
+      <div class="day serif">第一天 · 9月7日</div>
+      <div class="slot"><b>上午 9:00-12:00</b>｜取势 · AI时代零售变革</div>
+      <div class="slot"><b>下午 14:00-18:00</b>｜明道·优术 · 读懂客户，掌握方法</div>
+      <div class="slot"><b>晚上 19:00-21:00</b>｜笃行 · 科学订货实战</div>
+      <div class="day serif">第二天 · 9月8日</div>
+      <div class="slot"><b>上午 9:00-12:00</b>｜触动 · 客户心理与情绪价值</div>
+      <div class="slot"><b>下午 14:00-18:00</b>｜共创 · SOP定稿</div>
+      <div class="slot"><b>晚上 19:00-21:00</b>｜承诺 · 30天行动</div>
+    </div>
+    <div class="quote serif reveal d4" style="color:var(--wine);font-size:clamp(15px,4vw,20px)">决胜不在课堂，在持续地执行。</div>
+    <div class="reveal d4" style="margin-top:1.6vh">
+      <div class="slot" style="border-left-color:rgba(139,26,43,.3)"><b>9月9日</b>｜AIANGEL × MI&amp;GO 360订货</div>
+      <div class="slot" style="border-left-color:rgba(139,26,43,.3)"><b>9月10日</b>｜AIPALA 360订货</div>
+    </div>
+    <a class="cta dark reveal d5" data-target="s6">认识导师</a>
+  </section>
+
+  <!-- 6 讲师 -->
+  <section class="screen" id="s6">
+    <img class="teacher reveal" src="assets/teacher.jpg" alt="艾米老师">
+    <div class="tname serif reveal d1">艾米老师</div>
+    <div class="trole reveal d1">主讲导师</div>
+    <div class="tinfo reveal d2">
+      资质：国家职业资格一级培训师；心理咨询师 · 高级AI训练师<br>
+      <b>心理是根基，AI是杠杆，人才培养是核心</b><br>
+      20年服装零售深耕 · 超1000场实战培训 · 10万+线下学员<br>
+      世界500强/政府公共就业中心长期特约讲师<br>
+      AI+新零售单店盈利模型践行导师
+    </div>
+    <div class="quote serif reveal d4">理念：修己渡人，助人自助</div>
+    <a class="cta reveal d5" data-target="s7">立即报名</a>
+  </section>
+
+  <!-- 7 报名 -->
+  <section class="screen cream" id="s7">
+    <div class="ptitle serif dk reveal">报名信息</div>
+    <div class="gold-line reveal d1" style="background:linear-gradient(90deg,transparent,var(--wine),transparent)"></div>
+    <img class="venue reveal d2" src="assets/venue.png" alt="艾安琪国际智造园">
+    <div class="body reveal d2" style="margin:1.2vh auto">
+      活动时间：9月7日–10日<br>活动地点：艾安琪国际智造园<br>
+      参会对象：总部/分公司零售团队、全国加盟商<br>
+      参会人数：约200人 ｜ 报名截止：<span class="goldbig" style="color:var(--wine)">8月31日</span>
+    </div>
+    <img class="qr reveal d3" src="assets/qr_signup.png" alt="报名二维码">
+    <div class="qr-lab reveal d3">微信内直接打开，扫码即可报名</div>
+    <a class="cta dark reveal d4" data-target="s1">返回首页</a>
+  </section>
+
+  <!-- 8 结尾 -->
+  <section class="screen" id="s8">
+    <img class="logo reveal" src="assets/logo.png" alt="艾安琪" style="width:34%;margin-bottom:3vh">
+    <div class="subtitle reveal d1" style="font-size:clamp(18px,5vw,26px);color:var(--cream)">9月7日，我们不见不散。</div>
+    <div class="quote serif reveal d2" style="font-size:clamp(22px,6vw,34px)">决战私域，智胜未来。<br>我们，一起赢！</div>
+    <div class="orgs reveal d3">
+      主办：艾安琪时尚集团有限公司<br>
+      协办：简果·新零售商学院<br>
+      承办：多泽咨询公司
+    </div>
+    <img class="qr reveal d4" src="assets/qr_service.png" alt="客服二维码" style="width:34%;max-width:150px;margin-top:2vh">
+    <div class="qr-lab reveal d4">微信扫一扫，联系专属顾问</div>
+    <a class="cta reveal d5" data-target="s7">立即报名</a>
+  </section>
+
+</div>
+
+<div class="progress" id="prog">
+  <i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+</div>
+<div class="music-btn" id="mbtn">♪</div>
+<div class="music-tip" id="mtip">点击开启音乐</div>
+<audio id="bgm" loop preload="auto" src="assets/bg_music.mp3"></audio>
+
+<script>
+var APP_VERSION="1.0.0";
+// 倒计时
+(function(){
+  var target=new Date('2026-09-07T00:00:00').getTime();
+  function pad(n){return n<10?'0'+n:''+n;}
+  function tick(){
+    var d=target-Date.now();
+    if(d<0)d=0;
+    var day=Math.floor(d/86400000),h=Math.floor(d%86400000/3600000),
+        m=Math.floor(d%3600000/60000),s=Math.floor(d%60000/1000);
+    document.getElementById('cd-d').textContent=pad(day);
+    document.getElementById('cd-h').textContent=pad(h);
+    document.getElementById('cd-m').textContent=pad(m);
+    document.getElementById('cd-s').textContent=pad(s);
+  }
+  tick();setInterval(tick,1000);
+})();
+
+// 轮播
+(function(){
+  var imgs=document.querySelectorAll('.carousel img'),dots=document.querySelectorAll('#dots i'),i=0;
+  setInterval(function(){
+    imgs[i].classList.remove('active');dots[i].classList.remove('on');
+    i=(i+1)%imgs.length;
+    imgs[i].classList.add('active');dots[i].classList.add('on');
+  },3200);
+})();
+
+// 入场动画
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('show'); });
+  },{threshold:.2});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+
+// 进度条 + 导航
+(function(){
+  var screens=document.querySelectorAll('.screen'),pis=document.querySelectorAll('#prog i');
+  var h5=document.getElementById('h5');
+  function update(){
+    var idx=Math.round(h5.scrollTop/h5.clientHeight);
+    pis.forEach(function(p,k){p.classList.toggle('on',k===idx);});
+  }
+  h5.addEventListener('scroll',update);update();
+  document.querySelectorAll('[data-target]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=document.getElementById(b.getAttribute('data-target'));
+      if(t)t.scrollIntoView({behavior:'smooth'});
+    });
+  });
+})();
+
+// 音乐
+(function(){
+  var btn=document.getElementById('mbtn'),audio=document.getElementById('bgm'),tip=document.getElementById('mtip');
+  var started=false;
+  tip.classList.add('show');setTimeout(function(){tip.classList.remove('show');},3200);
+  btn.addEventListener('click',function(){
+    if(!started){
+      audio.play().then(function(){
+        btn.classList.add('playing');tip.textContent='播放中';tip.classList.add('show');
+        setTimeout(function(){tip.classList.remove('show');},1500);started=true;
+      }).catch(function(){tip.textContent='音频加载中…';tip.classList.add('show');setTimeout(function(){tip.classList.remove('show');},1800);});
+    }else{
+      if(audio.paused){audio.play();btn.classList.add('playing');}
+      else{audio.pause();btn.classList.remove('playing');}
+    }
+  });
+})();
+</script>
+</body>
+</html>
