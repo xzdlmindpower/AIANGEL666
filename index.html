@@ -17,10 +17,10 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 .serif{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",STSong,serif;}
-.h5{height:100dvh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;}
+.h5{height:100dvh;overflow-y:scroll;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;}
 .h5::-webkit-scrollbar{display:none;}
 .screen{
-  height:100dvh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;
+  height:100dvh;position:relative;display:flex;flex-direction:column;
   justify-content:center;align-items:center;padding:7vh 8vw;text-align:center;overflow:hidden;
   background:radial-gradient(135% 105% at 50% -18%, #e85d4c 0%, #d0302a 36%, var(--wine) 72%, var(--wine-deep) 100%);
 }
@@ -356,19 +356,62 @@ document.querySelectorAll('.carousel').forEach(function(car){
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 })();
 
-// 进度条 + 导航
+// 整屏翻页（JS驱动，兼容所有webview）+ 进度条 + 导航
 (function(){
-  var screens=document.querySelectorAll('.screen'),pis=document.querySelectorAll('#prog i');
   var h5=document.getElementById('h5');
-  function update(){
-    var idx=Math.round(h5.scrollTop/h5.clientHeight);
-    pis.forEach(function(p,k){p.classList.toggle('on',k===idx);});
+  var screens=Array.from(document.querySelectorAll('.screen'));
+  var pis=document.querySelectorAll('#prog i');
+  var current=0, lock=false, stimer;
+  function onLong(el){return el.classList.contains('scroll-y') && el.scrollHeight > el.clientHeight + 4;}
+  function setProg(i){pis.forEach(function(p,k){p.classList.toggle('on',k===i);});}
+  function go(i){
+    if(i<0||i>=screens.length||lock) return;
+    lock=true; current=i;
+    h5.scrollTo({top:i*h5.clientHeight, behavior:'smooth'});
+    setProg(i);
+    setTimeout(function(){lock=false;},600);
   }
-  h5.addEventListener('scroll',update);update();
+  // 触摸翻页：大滑动才翻，长屏先滚内部
+  var sy=0, st=0;
+  h5.addEventListener('touchstart',function(e){sy=e.touches[0].clientY;st=Date.now();},{passive:true});
+  h5.addEventListener('touchend',function(e){
+    var ey=e.changedTouches[0].clientY, dy=sy-ey, dt=Date.now()-st;
+    if(Math.abs(dy)<50||dt>900) return;
+    var dir=dy>0?1:-1, cur=screens[current];
+    if(onLong(cur)){
+      if(dir>0 && cur.scrollTop+cur.clientHeight < cur.scrollHeight-5) return;
+      if(dir<0 && cur.scrollTop>5) return;
+    }
+    go(current+dir);
+  },{passive:true});
+  // 滚轮翻页（桌面预览）
+  h5.addEventListener('wheel',function(e){
+    if(lock) return;
+    var dir=e.deltaY>0?1:-1, cur=screens[current];
+    if(onLong(cur)){
+      if(dir>0 && cur.scrollTop+cur.clientHeight < cur.scrollHeight-5) return;
+      if(dir<0 && cur.scrollTop>5) return;
+    }
+    go(current+dir);
+  },{passive:true});
+  // 进度条 + 滚动停止吸附到最近屏（短屏）
+  h5.addEventListener('scroll',function(){
+    var idx=Math.round(h5.scrollTop/h5.clientHeight);
+    if(idx!==current){current=idx;setProg(idx);}
+    clearTimeout(stimer);
+    stimer=setTimeout(function(){
+      if(lock) return;
+      var cur=screens[current];
+      if(onLong(cur) && cur.scrollTop>5 && cur.scrollTop+cur.clientHeight < cur.scrollHeight-5) return;
+      var target=Math.round(h5.scrollTop/h5.clientHeight)*h5.clientHeight;
+      if(h5.scrollTop!==target) h5.scrollTo({top:target,behavior:'smooth'});
+    },140);
+  });
+  // 按钮跳屏
   document.querySelectorAll('[data-target]').forEach(function(b){
     b.addEventListener('click',function(){
       var t=document.getElementById(b.getAttribute('data-target'));
-      if(t)t.scrollIntoView({behavior:'smooth'});
+      if(t) go(screens.indexOf(t));
     });
   });
 })();
