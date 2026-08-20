@@ -6,164 +6,261 @@
 <title>艾安琪2027春季新品发布会 · 邀请函</title>
 <style>
 :root{
-  --wine:#b51010; --wine-deep:#7a0808; --gold:#C9A96E; --gold-bright:#F0D878;
-  --cream:#FBF8F3; --cream-2:#F3ECE0;
+  --wine:#E02A25;        /* 品牌主红 */
+  --wine-mid:#A31E1A;    /* 过渡红 */
+  --wine-deep:#270606;   /* 深红棕·首尾深底 */
+  --coral:#E46549;       /* 珊瑚橙·强调 */
+  --rose:#CA9F9C;        /* 莫兰迪粉灰 */
+  --cream:#FBF7F4;       /* 米白 */
+  --cream-2:#F1E9E3;
+  --ink:#3A1414;         /* 正文深红棕 */
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html,body{height:100%;}
 body{
-  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;
-  background:#2a0808;color:var(--cream);overflow:hidden;
+  font-family:"Microsoft YaHei","PingFang SC","Heiti SC","SimHei","Hiragino Sans GB",sans-serif;
+  background:var(--wine-deep);color:var(--cream);overflow:hidden;
   -webkit-font-smoothing:antialiased;
 }
-.serif{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",STSong,serif;}
+.serif{font-family:"Microsoft YaHei","PingFang SC","Heiti SC","SimHei",sans-serif;}
 .h5{height:100dvh;overflow-y:scroll;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;}
 .h5::-webkit-scrollbar{display:none;}
+
+/* ===== 屏通用 ===== */
 .screen{
   height:100dvh;position:relative;display:flex;flex-direction:column;
-  justify-content:center;align-items:center;padding:7vh 8vw;text-align:center;overflow:hidden;
-  background:radial-gradient(135% 105% at 50% -18%, #e85d4c 0%, #d0302a 36%, var(--wine) 72%, var(--wine-deep) 100%);
+  justify-content:center;align-items:center;padding:9vh 7vw;text-align:center;overflow:hidden;
 }
-.screen::before{
-  content:"";position:absolute;width:140vmax;height:140vmax;top:-50vmax;left:50%;transform:translateX(-50%);
-  background:radial-gradient(circle, rgba(255,220,160,0.18) 0%, rgba(255,220,160,0) 60%);
-  animation:halo 9s ease-in-out infinite alternate;pointer-events:none;
+/* 线条底装修（红底屏，不含封面/内页图） */
+.screen:not(.cream):not(.cover)::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,210,200,.07) 0 1px, transparent 1px 26px),
+    radial-gradient(circle at 18% 22%, rgba(255,210,200,.10) 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 78%, rgba(255,210,200,.10) 0 1px, transparent 2px);
 }
-@keyframes halo{from{transform:translateX(-50%) scale(1);opacity:.7;}to{transform:translateX(-50%) scale(1.15);opacity:1;}}
-.screen.cream{background:radial-gradient(130% 95% at 50% -10%, #ffffff 0%, var(--cream) 52%, var(--cream-2) 100%);color:var(--wine-deep);}
-.screen.cream::before{background:radial-gradient(circle, rgba(181,16,16,0.05) 0%, rgba(181,16,16,0) 60%);}
-/* 米色底文字配色（酒红系，对比清晰） */
-.screen.cream .ptitle,.screen.cream .ptitle.dk,.screen.cream .quote,.screen.cream .day,
-.screen.cream .camp,.screen.cream .tname,.screen.cream .trole,.screen.cream .qr-lab{color:var(--wine-deep);}
-.screen.cream .body,.screen.cream .list li,.screen.cream .slot,.screen.cream .tinfo,
-.screen.cream .orgs,.screen.cream .subtitle,.screen.cream .meta{color:rgba(122,16,16,.9);}
-.screen.cream .sdesc{color:rgba(122,16,16,.66);}
-.screen.cream .slot b{color:var(--wine);}
-.screen.cream .slot{margin:.45vh 0;padding:.55vh 0 .55vh 1em;}
-.screen.cream .day{margin:1.9vh 0 .8vh;}
-.screen.cream .tinfo b{color:var(--wine-deep);}
-.screen.cream .list li::before{color:var(--wine);}
-.screen.cream .dots i.on{background:var(--wine);}
-.screen.cream .gold-line{background:linear-gradient(90deg,transparent,var(--wine),transparent);}
-.screen.cream .goldbig{color:var(--wine);}
-.screen.cream .cta{border-color:var(--wine-deep);color:var(--wine-deep);background:rgba(122,16,16,.04);}
-.screen.cream .cta:hover{background:var(--wine-deep);color:var(--cream);}
-.s7 .body{font-size:clamp(15px,4.6vw,21px);line-height:2;}
-.screen.scroll-y{overflow-y:auto;justify-content:flex-start;padding-top:7vh;-webkit-overflow-scrolling:touch;}
-.s2 .invite{position:relative;max-width:600px;width:100%;padding:5vh 7vw;border:1px solid rgba(181,16,16,.22);border-radius:8px;background:rgba(181,16,16,.02);overflow:hidden;}
-.s2 .invite::before{content:"";position:absolute;inset:0;background:url(assets/logo.png) center/58% no-repeat;opacity:.05;pointer-events:none;}
-.s2 .body{font-size:clamp(17px,5vw,23px);line-height:2.1;position:relative;}
-.s2 .quote{font-size:clamp(20px,5.6vw,28px);position:relative;}
-
-.logo{width:58%;max-width:300px;margin-bottom:4vh;filter:drop-shadow(0 4px 14px rgba(0,0,0,.4));}
-.brand{letter-spacing:.32em;font-size:clamp(13px,3.4vw,18px);color:var(--gold);margin-bottom:3vh;}
-h1.title{
-  font-size:clamp(34px,9.5vw,62px);line-height:1.15;color:var(--gold-bright);font-weight:700;
-  text-shadow:0 2px 18px rgba(212,175,55,.35);margin-bottom:2.4vh;letter-spacing:.04em;
+.screen:not(.cream):not(.cover)::after{
+  content:"";position:absolute;inset:3.4vh 4vw;border:1.5px solid rgba(255,210,200,.28);
+  border-radius:16px;pointer-events:none;z-index:1;
 }
-.subtitle{font-size:clamp(16px,4.4vw,22px);color:var(--cream);opacity:.95;margin-bottom:1.6vh;letter-spacing:.06em;}
-.camp{font-size:clamp(14px,3.8vw,19px);color:var(--gold);margin-bottom:3vh;letter-spacing:.03em;}
-.meta{font-size:clamp(13px,3.4vw,17px);color:rgba(245,240,232,.85);margin-bottom:1.2vh;letter-spacing:.05em;}
-.gold-line{width:54px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:2.4vh auto;}
 
-/* 倒计时 */
-.countdown{display:flex;gap:3vw;justify-content:center;margin:2.5vh 0 1vh;}
-.cd-box{display:flex;flex-direction:column;align-items:center;min-width:14vw;}
-.cd-num{font-family:"Noto Serif SC",serif;font-size:clamp(26px,8vw,46px);font-weight:700;color:var(--gold-bright);line-height:1;
-  text-shadow:0 2px 12px rgba(212,175,55,.4);font-variant-numeric:tabular-nums;}
-.cd-lab{font-size:clamp(10px,2.8vw,13px);color:rgba(245,240,232,.7);margin-top:.6vh;letter-spacing:.1em;}
-.cd-tip{font-size:clamp(11px,3vw,14px);color:var(--gold);letter-spacing:.1em;margin-top:1vh;}
-
-/* 按钮 */
-.cta{
-  margin-top:3.4vh;display:inline-block;padding:13px 38px;border:1.5px solid var(--gold);
-  color:var(--gold-bright);font-size:clamp(15px,4vw,18px);letter-spacing:.18em;border-radius:40px;
-  background:rgba(201,169,110,.06);cursor:pointer;transition:.35s;text-decoration:none;
-  backdrop-filter:blur(2px);
+/* ===== 封面：用设计好的封面图 ===== */
+.screen.cover{
+  background:url('assets/封面.png') center/cover no-repeat;
+  justify-content:flex-end;padding:0 8vw 13vh;
 }
-.cta:hover,.cta:active{background:var(--gold);color:var(--wine-deep);box-shadow:0 6px 22px rgba(201,169,110,.45);transform:translateY(-2px);}
-.cta.dark{border-color:var(--gold);color:var(--gold-bright);background:rgba(201,169,110,.06);}
-.cta.dark:hover{background:var(--gold);color:var(--wine-deep);}
+.screen.cover::before,.screen.cover::after{display:none;}
+/* 封面 LOGO 居中 */
+.screen.cover .logo-corner{
+  position:absolute;top:5vh;left:50%;transform:translateX(-50%);
+  width:36%;max-width:150px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35));
+}
+.cover-meta{
+  position:relative;z-index:3;font-size:clamp(11px,3.45vw,16.5px);font-weight:700;
+  color:#fff;letter-spacing:.06em;margin-bottom:1.6vh;
+  text-shadow:0 2px 14px rgba(0,0,0,.55);
+}
+/* 倒计时缩至上一排字(日期)的约2/3，弱化存在感 */
+.screen.cover .countdown{margin:0 0 1vh;}
+.screen.cover .cd-num{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.55);font-size:clamp(14px,4.3vw,19px);}
+.screen.cover .cd-lab{color:rgba(255,255,255,.85);font-size:clamp(9px,2.4vw,11px);text-shadow:0 1px 8px rgba(0,0,0,.5);}
+.screen.cover .cd-tip{color:var(--rose);font-size:clamp(10px,2.8vw,12px);text-shadow:0 1px 8px rgba(0,0,0,.5);}
+/* 封面底部两排白字标签 */
+.cover-tags{position:relative;z-index:3;text-align:center;margin-top:2.4vh;}
+.cover-tag-row{font-size:clamp(14px,4vw,19px);font-weight:700;color:#fff;letter-spacing:.06em;
+  text-shadow:0 2px 12px rgba(0,0,0,.6);}
+.cover-tag-row span{color:rgba(255,255,255,.55);margin:0 .45em;}
+.cover-tag-sub{font-size:clamp(13px,3.6vw,17px);color:#fff;letter-spacing:.14em;margin-top:1vh;
+  text-shadow:0 2px 12px rgba(0,0,0,.6);}
 
-.ptitle{font-family:"Noto Serif SC",serif;font-size:clamp(26px,7vw,40px);color:var(--gold-bright);margin-bottom:1vh;letter-spacing:.05em;}
-.ptitle.dk{color:var(--gold-bright);}
-.quote{font-family:"Noto Serif SC",serif;font-size:clamp(18px,5vw,26px);color:var(--gold);line-height:1.5;margin:2.5vh 0;letter-spacing:.04em;}
-.body{font-size:clamp(15px,4.4vw,20px);line-height:1.9;color:rgba(245,240,232,.95);letter-spacing:.02em;max-width:640px;}
-.list{text-align:left;max-width:600px;margin:1.5vh auto;}
-.list li{list-style:none;font-size:clamp(15px,4.4vw,20px);line-height:1.85;color:rgba(245,240,232,.95);
-  padding:1.1vh 0 1.1vh 2.2em;position:relative;border-bottom:1px solid rgba(201,169,110,.18);letter-spacing:.01em;}
-.list li::before{content:"◆";position:absolute;left:.4em;color:var(--gold);font-size:.8em;top:1.5vh;}
-.goldbig{color:var(--gold-bright);font-weight:700;}
+/* 封底：引用设计好的封底图 + 主办/协办/咨询靠下排版 */
+.screen.backcover{
+  background:url('assets/封底.png') center/cover no-repeat;
+  justify-content:flex-end;padding:0 6vw 1.2vh;
+}
+.screen.backcover::before,.screen.backcover::after{display:none;}
+
+/* ===== 内页：正文背景图 + 红边 + 纯白内容块 ===== */
+.screen.cream{
+  background:url('assets/正文背景.png') center/cover no-repeat;
+  color:var(--ink);padding-top:8vh;
+}
+.screen.cream::after{ /* 红色边框 */
+  content:"";position:absolute;inset:3vh 4vw;border:2px solid var(--wine);border-radius:16px;
+  pointer-events:none;z-index:1;opacity:.5;
+}
+.screen.cream::before{ /* 角落小装饰线（装修边） */
+  content:"";position:absolute;inset:3vh 4vw;pointer-events:none;z-index:2;
+  background:
+    linear-gradient(var(--wine),var(--wine)) 0 0/18px 2px no-repeat,
+    linear-gradient(var(--wine),var(--wine)) 0 0/2px 18px no-repeat,
+    linear-gradient(var(--wine),var(--wine)) 100% 100%/18px 2px no-repeat,
+    linear-gradient(var(--wine),var(--wine)) 100% 100%/2px 18px no-repeat;
+  opacity:.65;
+}
+/* 所有 LOGO 居中 */
+.logo-corner{
+  position:absolute;top:3.2vh;left:50%;transform:translateX(-50%);width:32%;max-width:140px;z-index:6;
+  filter:drop-shadow(0 2px 8px rgba(0,0,0,.25));
+}
+
+/* 中间内容白底色块 */
+.panel{
+  position:relative;z-index:3;width:100%;max-width:580px;
+  background:linear-gradient(#ffffff,#fffdfb) padding-box,
+    linear-gradient(150deg,#e02a25 0%,rgba(228,101,73,.5) 45%,rgba(202,159,156,.65) 100%) border-box;
+  border:1.5px solid transparent;
+  border-radius:22px;padding:5.5vh 7vw;
+  box-shadow:0 18px 50px rgba(224,42,37,.12);
+}
+/* 面板顶部渐变装饰线（时尚感） */
+.panel::before{
+  content:"";position:absolute;top:10px;left:14%;right:14%;height:2px;
+  background:linear-gradient(90deg,transparent,var(--coral),var(--wine),transparent);
+  border-radius:2px;pointer-events:none;opacity:.75;
+}
+/* 面板四角 L 形装饰（女装精致感） */
+.panel::after{
+  content:"";position:absolute;inset:8px;pointer-events:none;z-index:1;opacity:.55;
+  background:
+    linear-gradient(var(--coral),var(--coral)) 0 0/16px 2px no-repeat,
+    linear-gradient(var(--coral),var(--coral)) 0 0/2px 16px no-repeat,
+    linear-gradient(var(--wine),var(--wine)) 100% 100%/16px 2px no-repeat,
+    linear-gradient(var(--wine),var(--wine)) 100% 100%/2px 16px no-repeat;
+}
+/* 字少的页：拉长区域、居中、放大 */
+.panel.tall{min-height:60vh;padding:8vh 8vw;display:flex;flex-direction:column;justify-content:center;}
+/* 第3屏紧凑面板：整体缩小不挡LOGO，字小行距小 */
+.panel.compact{padding:4vh 5.5vw;}
+.panel.compact .ptitle{font-size:clamp(24px,6.6vw,36px);margin-bottom:1vh;}
+.panel.compact .list{margin:1vh auto;}
+.panel.compact .list li{font-size:clamp(13px,3.6vw,16px);line-height:1.5;padding:.8vh 0 .8vh 1.8em;}
+.panel.compact .list li::before{top:1.2vh;}
+.panel.compact .gold-line{margin:1.6vh auto;}
+.panel.compact .quote.keymax{font-size:clamp(16px,4.8vw,26px);margin:1.6vh 0;}
+.panel.tall .body{font-size:clamp(17px,5vw,23px);}
+.panel.tall .quote{font-size:clamp(20px,5.6vw,28px);}
+.screen.scroll-y{overflow-y:auto;justify-content:flex-start;padding-top:8vh;-webkit-overflow-scrolling:touch;}
+.screen.scroll-y::after{inset:2.2vh 3.4vw;}
+
+/* 内页文字（放大） */
+.ptitle{position:relative;z-index:3;font-size:clamp(28px,7.6vw,44px);font-weight:800;margin-bottom:1.4vh;letter-spacing:.06em;line-height:1.3;
+  background:linear-gradient(135deg,#7c0d0d 0%,#e02a25 55%,#e46549 110%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#7c0d0d;}
+.ptitle::before,.ptitle::after{content:"◆";color:var(--coral);font-size:.32em;position:absolute;top:50%;transform:translateY(-50%);opacity:.75;}
+.ptitle::before{left:-1.4em;}.ptitle::after{right:-1.4em;}
+.panel .gold-line{background:linear-gradient(90deg,transparent,var(--wine),transparent);}
+.gold-line{width:54px;height:2px;margin:2.4vh auto;transform:scaleX(0);transform-origin:center;transition:transform 1s cubic-bezier(.22,.68,.3,1);}
+.gold-line.show{transform:scaleX(1);}
+.body{font-size:clamp(16px,4.6vw,21px);line-height:1.95;color:rgba(58,20,20,.92);position:relative;z-index:3;margin:1vh 0;}
+.quote{font-size:clamp(19px,5.4vw,26px);color:var(--wine);line-height:1.5;margin:2.4vh 0;letter-spacing:.03em;position:relative;z-index:3;font-weight:700;}
+.quote.keymax{font-size:clamp(18px,5.6vw,30px);font-weight:900;color:var(--wine);line-height:1.3;letter-spacing:.02em;margin:2.6vh 0;white-space:nowrap;}
+/* 第2页超大关键词 */
+.kwmax{font-size:clamp(30px,9vw,46px);font-weight:800;line-height:1.3;margin:1.8vh auto;letter-spacing:.04em;position:relative;z-index:3;
+  background:linear-gradient(135deg,#7c0d0d 0%,#e02a25 55%,#e46549 110%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#7c0d0d;}
+.kwmax b{color:inherit;}
+
+/* 列表：关键字放大 */
+.list{text-align:left;max-width:560px;margin:1.6vh auto;position:relative;z-index:3;}
+.list li{list-style:none;font-size:clamp(15px,4.2vw,19px);line-height:1.68;color:rgba(58,20,20,.92);
+  padding:1.3vh 0 1.3vh 2em;position:relative;border-bottom:1px solid rgba(224,42,37,.12);
+  opacity:0;transform:translateX(-24px);transition:opacity .7s ease,transform .7s ease;}
+.list li.show{opacity:1;transform:translateX(0);}
+.list li::before{content:"◆";position:absolute;left:.3em;color:var(--coral);font-size:.72em;top:1.8vh;}
+.goldbig{color:var(--wine);font-weight:800;font-size:1.32em;}
 
 /* 日程 */
-.sched{text-align:left;max-width:620px;width:100%;margin:1vh auto;}
-.day{font-family:"Noto Serif SC",serif;font-size:clamp(17px,4.6vw,22px);color:var(--gold);margin:2.4vh 0 1vh;letter-spacing:.04em;}
-.slot{font-size:clamp(14px,3.9vw,18px);line-height:1.7;color:rgba(245,240,232,.93);padding:.8vh 0 .8vh 0;border-left:2px solid rgba(201,169,110,.35);padding-left:1.1em;margin:.6vh 0;}
-.slot b{color:var(--gold-bright);}
-.sdesc{display:block;font-size:clamp(13px,3.4vw,16px);line-height:1.6;color:rgba(245,240,232,.76);margin-top:.4vh;letter-spacing:.01em;}
+.sched{text-align:left;width:100%;margin:1vh auto;position:relative;z-index:3;}
+.day{font-size:clamp(16px,4.4vw,21px);color:var(--wine);margin:2.4vh 0 1vh;letter-spacing:.03em;}
+.slot{font-size:clamp(14px,3.8vw,17px);line-height:1.7;color:rgba(58,20,20,.9);padding:.8vh 0 .8vh 1.1em;border-left:2px solid var(--coral);margin:.6vh 0;}
+.slot b{color:var(--wine);}
+.sdesc{display:block;font-size:clamp(12px,3.2vw,15px);line-height:1.5;color:rgba(58,20,20,.62);margin-top:.4vh;}
 
-/* 轮播 */
-.carousel{width:100%;max-width:440px;margin:2vh auto;position:relative;border-radius:14px;overflow:hidden;
-  box-shadow:0 10px 34px rgba(0,0,0,.3);border:1px solid rgba(201,169,110,.4);aspect-ratio:16/9;min-height:34vh;background:#5a1812;}
-.carousel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s;}
-.carousel img.active{opacity:1;}
-.dots{display:flex;gap:8px;justify-content:center;margin-top:1.4vh;}
-.dots i{width:7px;height:7px;border-radius:50%;background:rgba(201,169,110,.35);transition:.3s;}
-.dots i.on{background:var(--gold-bright);transform:scale(1.3);}
+/* 武器卡片（2x2 关键字放大） */
+.weapons{display:flex;flex-direction:column;gap:1.8vh;max-width:560px;margin:1.4vh auto;position:relative;z-index:3;}
+.weapon{background:rgba(224,42,37,.05);border:1px solid rgba(224,42,37,.16);border-radius:14px;padding:2.2vh 3vw;text-align:left;}
+.weapon b{display:block;font-size:clamp(18px,5vw,24px);color:var(--wine);margin-bottom:.6vh;line-height:1.25;}
+.weapon span{font-size:clamp(12px,3.2vw,14px);line-height:1.5;color:rgba(58,20,20,.82);}
 
-/* 讲师 */
-.teacher{width:34%;max-width:140px;border-radius:14px;border:2px solid var(--gold);
-  box-shadow:0 10px 30px rgba(0,0,0,.5);margin-bottom:2.4vh;object-fit:cover;aspect-ratio:3/4;}
-.tname{font-family:"Noto Serif SC",serif;font-size:clamp(22px,6vw,30px);color:var(--gold-bright);margin-bottom:.6vh;}
-.trole{font-size:clamp(13px,3.6vw,16px);color:var(--gold);margin-bottom:1.8vh;letter-spacing:.04em;}
-.tinfo{font-size:clamp(13px,3.6vw,16px);line-height:1.9;color:rgba(245,240,232,.9);max-width:560px;}
-.tinfo b{color:var(--gold-bright);}
+/* 形象照 / 图 */
+.teacher{width:58%;max-width:240px;border-radius:18px;border:2px solid #B98E3E;position:relative;z-index:3;
+  box-shadow:0 12px 34px rgba(39,6,6,.35);margin-bottom:2.4vh;object-fit:cover;aspect-ratio:3/4;}
+.hero-img{width:100%;max-width:420px;border-radius:16px;margin:1.6vh auto;position:relative;z-index:3;
+  box-shadow:0 10px 30px rgba(39,6,6,.18);border:1px solid rgba(224,42,37,.18);}
 
-/* 报名/结尾 */
-.venue{width:100%;max-width:440px;border-radius:12px;margin:1.6vh auto;box-shadow:0 8px 26px rgba(0,0,0,.4);border:1px solid rgba(201,169,110,.35);}
-.qr{width:42%;max-width:180px;margin:1.4vh auto;border-radius:10px;background:#fff;padding:10px;box-shadow:0 6px 20px rgba(0,0,0,.35);}
-.qr-lab{font-size:clamp(12px,3.2vw,15px);color:var(--gold);margin-top:.8vh;letter-spacing:.05em;}
-.orgs{font-size:clamp(12px,3.2vw,15px);color:rgba(245,240,232,.8);line-height:2;margin-top:2.4vh;letter-spacing:.02em;}
+/* 二维码：干净正方形，无多余留白（客服码、报名码统一格式） */
+.qr-simple{width:30%;max-width:118px;display:block;margin:1.2vh auto 0;border-radius:8px;
+  box-shadow:0 6px 18px rgba(39,6,6,.15);position:relative;z-index:3;}
+.qr-lab{font-size:clamp(12px,3.2vw,15px);color:var(--wine);margin-top:1vh;letter-spacing:.05em;position:relative;z-index:3;}
+
+/* 按钮并排成一行 */
+.btn-row{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;gap:2.4vw;position:relative;z-index:3;margin-top:1.6vh;}
+.link-btn{display:inline-flex;align-items:center;gap:.4em;padding:11px 26px;border-radius:30px;
+  background:var(--wine);color:#fff;font-size:clamp(13px,3.6vw,16px);letter-spacing:.05em;text-decoration:none;
+  box-shadow:0 6px 18px rgba(224,42,37,.35);transition:.3s;}
+.link-btn.alt{background:var(--coral);box-shadow:0 6px 18px rgba(228,101,73,.35);}
+.link-btn:active{transform:translateY(-2px);filter:brightness(1.05);}
+.link-btn .arrow{font-size:1.1em;}
+
+/* 倒计时 */
+.countdown{display:flex;gap:0;justify-content:center;margin:2.2vh 0 .6vh;position:relative;z-index:3;}
+.cd-box{display:flex;flex-direction:column;align-items:center;min-width:auto;padding:0 2.2vw;}
+.cd-num{font-size:clamp(14px,4.3vw,19px);font-weight:700;color:var(--cream);line-height:1;text-shadow:0 2px 14px rgba(0,0,0,.25);font-variant-numeric:tabular-nums;}
+.cd-lab{font-size:clamp(9px,2.4vw,11px);color:rgba(251,247,244,.7);margin-top:.6vh;letter-spacing:.1em;}
+.cd-tip{font-size:clamp(10px,2.8vw,12px);color:var(--coral);letter-spacing:.12em;margin-top:1vh;position:relative;z-index:3;}
+
+/* 讲师文字 */
+.tname{font-size:clamp(22px,6vw,30px);font-weight:800;margin-bottom:.4vh;position:relative;z-index:3;
+  background:linear-gradient(135deg,#7c0d0d 0%,#e02a25 55%,#e46549 110%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#7c0d0d;}
+.trole{font-size:clamp(13px,3.6vw,16px);color:var(--coral);margin-bottom:1.6vh;letter-spacing:.04em;position:relative;z-index:3;}
+.tinfo{font-size:clamp(13px,3.5vw,15px);line-height:1.9;color:rgba(58,20,20,.9);max-width:520px;margin:0 auto 1.4vh;position:relative;z-index:3;}
+.tinfo b{color:var(--wine);font-size:1.12em;}
+/* 讲师页分隔线 + 封底靠下排版 */
+.t-divider{width:46px;height:2px;background:linear-gradient(90deg,transparent,var(--coral),transparent);margin:1.4vh auto;position:relative;z-index:3;}
+.orgs-bottom{position:relative;z-index:3;text-align:center;color:rgba(251,247,244,.92);font-size:clamp(12px,3.3vw,15px);line-height:1.45;letter-spacing:.04em;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.45);}
+.org-line{margin:.1vh 0;}
+.org-sub{padding-left:1.4em;opacity:.92;}
+.org-consult{margin-top:.9vh;margin-bottom:1em;display:flex;flex-direction:column;align-items:center;}
+.org-consult .qr-simple{width:34%;max-width:135px;margin:1vh auto 0;box-shadow:0 6px 18px rgba(0,0,0,.3);}
 
 /* 音乐按钮 */
 .music-btn{position:fixed;right:18px;bottom:22px;width:46px;height:46px;border-radius:50%;
-  background:rgba(181,16,16,.82);border:1.5px solid var(--gold);color:var(--gold-bright);
+  background:rgba(39,6,6,.82);border:1.5px solid var(--coral);color:var(--cream);
   display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;z-index:50;
   box-shadow:0 4px 16px rgba(0,0,0,.4);backdrop-filter:blur(3px);transition:.3s;}
-.music-btn.playing{animation:spin 4s linear infinite;border-color:var(--gold-bright);}
+.music-btn.playing{animation:spin 4s linear infinite;border-color:var(--rose);}
 @keyframes spin{to{transform:rotate(360deg);}}
-.music-tip{position:fixed;right:18px;bottom:74px;font-size:11px;color:var(--gold);background:rgba(181,16,16,.78);
+.music-tip{position:fixed;right:18px;bottom:74px;font-size:11px;color:var(--cream);background:rgba(39,6,6,.8);
   padding:3px 9px;border-radius:10px;z-index:50;opacity:0;transition:.4s;pointer-events:none;}
 .music-tip.show{opacity:1;}
 
-/* 滚动提示 */
-.scroll-hint{position:absolute;bottom:3.2vh;left:50%;transform:translateX(-50%);color:var(--gold);font-size:12px;
-  letter-spacing:.2em;animation:bob 1.8s ease-in-out infinite;opacity:.8;}
+.scroll-hint{position:absolute;bottom:3vh;left:50%;transform:translateX(-50%);color:#fff;font-size:12px;
+  letter-spacing:.2em;animation:bob 1.8s ease-in-out infinite;opacity:.9;z-index:3;text-shadow:0 1px 6px rgba(0,0,0,.5);}
 @keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
 
 /* 入场动画 */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease;}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease;}
 .reveal.show{opacity:1;transform:translateY(0);}
 .reveal.d1{transition-delay:.12s;}.reveal.d2{transition-delay:.24s;}.reveal.d3{transition-delay:.36s;}
 .reveal.d4{transition-delay:.48s;}.reveal.d5{transition-delay:.60s;}
+.ptitle.reveal{transform:translateY(28px) scale(.95);}
+.ptitle.reveal.show{transform:translateY(0) scale(1);}
 
 .progress{position:fixed;right:10px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:9px;}
-.progress i{width:7px;height:7px;border-radius:50%;background:rgba(201,169,110,.35);transition:.3s;}
-.progress i.on{background:var(--gold-bright);height:18px;border-radius:4px;}
+.progress i{width:7px;height:7px;border-radius:50%;background:rgba(202,159,156,.4);transition:.3s;}
+.progress i.on{background:var(--coral);height:18px;border-radius:4px;animation:breathe 2.2s ease-in-out infinite;}
+@keyframes breathe{0%,100%{box-shadow:0 0 0 0 rgba(228,101,73,.5);}50%{box-shadow:0 0 0 5px rgba(228,101,73,0);}}
 </style>
 </head>
 <body>
 <div class="h5" id="h5">
 
-  <!-- 1 封面 -->
-  <section class="screen" id="s1">
-    <img class="logo reveal" src="assets/logo.png" alt="艾安琪">
-    <div class="brand reveal d1">AIANGEL · MI&amp;GO · AIPALA</div>
-    <h1 class="title serif reveal d2">决战私域 智胜未来</h1>
-    <div class="subtitle reveal d3">2027年春季新品发布会</div>
-    <div class="camp reveal d3">暨《AI+新零售·单店增长系统》特训营</div>
-    <div class="gold-line reveal d4"></div>
-    <div class="meta reveal d4">9月7日–10日 · 艾安琪国际智造园</div>
+  <!-- 1 封面（设计好的封面图 + 中下部动画日期地点 + 底部白字标签；LOGO居中；无立即报名） -->
+  <section class="screen cover" id="s1">
+    <img class="logo-corner" src="assets/logo.png" alt="艾安琪">
+    <div class="cover-meta reveal d4">9月7日–10日 · 艾安琪国际智造园</div>
     <div class="countdown reveal d5" id="cd">
       <div class="cd-box"><span class="cd-num" id="cd-d">00</span><span class="cd-lab">天</span></div>
       <div class="cd-box"><span class="cd-num" id="cd-h">00</span><span class="cd-lab">时</span></div>
@@ -171,137 +268,144 @@ h1.title{
       <div class="cd-box"><span class="cd-num" id="cd-s">00</span><span class="cd-lab">秒</span></div>
     </div>
     <div class="cd-tip reveal d5">距盛大开幕</div>
-    <a class="cta reveal d5" data-target="s7">立即报名</a>
+    <div class="cover-tags reveal d5">
+      <div class="cover-tag-row">私域重构 ｜ 智能运营 ｜ 增长实战</div>
+      <div class="cover-tag-sub">邀您共赴未来零售新局</div>
+    </div>
     <div class="scroll-hint">上滑了解更多 ↑</div>
   </section>
 
-  <!-- 2 邀请语 -->
-  <section class="screen cream s2" id="s2">
-    <div class="invite reveal">
-      <div class="ptitle serif">致艾安琪全国加盟商伙伴</div>
+  <!-- 2 邀请语（字少→拉长放大；超大关键词突出重点） -->
+  <section class="screen cream" id="s2">
+    <img class="logo-corner" src="assets/logo.png" alt="艾安琪">
+    <div class="panel reveal tall">
+      <div class="ptitle serif reveal">致艾安琪全国加盟商伙伴</div>
       <div class="gold-line"></div>
-      <div class="body">市场在变，消费者在变，但艾安琪与你并肩作战的决心，从未改变。</div>
-      <div class="body">2027，不是等待的一年，是行动的一年。</div>
-      <div class="body">这一次，我们不只谈订货，更谈怎么把货卖出去、把人留住。</div>
-      <div class="quote serif">你不是一个人在战斗。</div>
+      <div class="body">市场在变，但艾安琪<b style="color:var(--wine);font-weight:800">初心不变</b>！<br>这一次，不只订货——更要</div>
+      <div class="kwmax"><b>会卖货</b>、<b>能留人</b></div>
+      <div class="quote serif">商业向善，你我同行。</div>
+      <div class="body" style="font-size:clamp(15px,4.2vw,19px)">你不是一个人在战斗。</div>
     </div>
   </section>
 
-  <!-- 3 课程背景 -->
+  <!-- 3 课程背景（关键字放大） -->
   <section class="screen cream" id="s3">
-    <div class="ptitle serif dk reveal">为什么你一定要来？</div>
-    <div class="gold-line reveal d1"></div>
-    <ul class="list reveal d2">
-      <li><span class="goldbig">AI时代</span>，是实体店弯道超车的最佳时机。</li>
-      <li>淘汰你的不是AI，而比你更会用AI的人。</li>
-      <li>不是生意难做了，是做生意的方式变了。</li>
-      <li>你的门店里，躺着 <span class="goldbig">1500–5000</span> 个沉睡VIP——这是看不见的客流。</li>
-      <li>服装行业最后的红利——私域社群。</li>
-      <li>女装不做社群？等于把客户往别人店里送。</li>
-    </ul>
-    <div class="quote serif reveal d4">经营的本质，是经营人心。<br>人心经营好了，业绩自然来。</div>
+    <img class="logo-corner" src="assets/logo.png" alt="艾安琪">
+    <div class="panel compact reveal">
+      <div class="ptitle serif reveal">为什么你一定要来？</div>
+      <div class="gold-line"></div>
+      <ul class="list">
+        <li><span class="goldbig">AI时代</span>，是实体店<span class="goldbig">弯道超车</span>的最佳时机。</li>
+        <li>不是生意难做了，是做生意的<span class="goldbig">方式变了</span>。</li>
+        <li>你的门店里，躺着 <span class="goldbig">1500–5000个沉睡VIP</span>。</li>
+        <li>服装行业红利趋势——<span class="goldbig">私域社群</span></li>
+        <li>女装不做<span class="goldbig">社群</span>？等于<span class="goldbig">把客户往别人店里送</span>。</li>
+      </ul>
+      <div class="quote serif keymax">经营的本质，是经营人心。</div>
+    </div>
   </section>
 
-  <!-- 4 课程收益 -->
+  <!-- 4 课程收益（武器卡片） -->
   <section class="screen cream" id="s4">
-    <div class="ptitle serif reveal">你将带走4样武器</div>
-    <div class="gold-line reveal d1"></div>
-    <div class="carousel reveal d2">
-      <img class="active" src="assets/product1.jpg" alt="春季新品">
-      <img src="assets/product2.jpg" alt="春季新品">
-      <img src="assets/product3.jpg" alt="春季新品">
+    <img class="logo-corner" src="assets/logo.png" alt="艾安琪">
+    <div class="panel reveal">
+      <div class="ptitle serif reveal">你将带走4样武器</div>
+      <div class="gold-line"></div>
+      <div class="weapons">
+        <div class="weapon"><b>读懂VIP，订准货</b><span>一套科学订货方法论。</span></div>
+        <div class="weapon"><b>用AI武装你的店</b><span>一张AI工具地图。</span></div>
+        <div class="weapon"><b>简单·易学·好用</b><span>一套社群SOP，让社群自转。</span></div>
+        <div class="weapon"><b>马上做！</b><span>一份执行承诺书，从知道到做到。</span></div>
+      </div>
     </div>
-    <div class="dots reveal d2"><i class="on"></i><i></i><i></i></div>
-    <ul class="list reveal d3">
-      <li>一套科学订货方法论——读懂VIP，才能订对货。</li>
-      <li>一张AI工具地图——用AI武装你的店。</li>
-      <li>一套社群SOP——简单、易学、好用，照着做，社群自己转。</li>
-      <li>一份30天执行承诺书——不是"我学了"，是"我做到了"。</li>
-    </ul>
   </section>
 
   <!-- 5 特训营日程 -->
   <section class="screen cream scroll-y" id="s5">
-    <div class="ptitle serif dk reveal">特训营 · 前2天日程</div>
-    <div class="gold-line reveal d1"></div>
-    <div class="sched reveal d2">
-      <div class="day serif">第一天 · 9月7日</div>
-      <div class="slot"><b>上午 9:00-12:00</b>｜取势 · AI时代零售变革<br><span class="sdesc">看懂趋势，才知道劲往哪使。</span></div>
-      <div class="slot"><b>下午 14:00-18:00</b>｜明道·优术 · 读懂客户，掌握方法<br><span class="sdesc">读懂VIP，才能订对货。</span></div>
-      <div class="slot"><b>晚上 19:00-21:00</b>｜笃行 · 科学订货实战<br><span class="sdesc">你订的不是货，是你对VIP的理解。</span></div>
-      <div class="day serif">第二天 · 9月8日</div>
-      <div class="slot"><b>上午 9:00-12:00</b>｜触动 · 客户心理与情绪价值<br><span class="sdesc">让VIP离不开你，不是品牌，是你。</span></div>
-      <div class="slot"><b>下午 14:00-18:00</b>｜共创 · SOP定稿<br><span class="sdesc">简单、易学、好用，照着做，社群自己转。</span></div>
-      <div class="slot"><b>晚上 19:00-21:00</b>｜承诺 · 30天行动<br><span class="sdesc">不是"我学了"，是"我做到了"。</span></div>
+    <img class="logo-corner" src="assets/logo.png" alt="艾安琪">
+    <div class="panel reveal">
+      <div class="ptitle serif reveal">特训营 · 前2天</div>
+      <div class="gold-line"></div>
+      <div class="sched">
+        <div class="day serif">第一天 · 9月7日</div>
+        <div class="slot"><b>上午 9:00-12:00</b>｜取势 · AI时代零售变革<br><span class="sdesc">看懂趋势，才知道劲往哪使。</span></div>
+        <div class="slot"><b>下午 14:00-18:00</b>｜明道·优术 · 读懂客户<br><span class="sdesc">读懂VIP，才能订对货。</span></div>
+        <div class="slot"><b>晚上 19:00-21:00</b>｜笃行 · 科学订货实战<br><span class="sdesc">你订的不是货，是对VIP的理解。</span></div>
+        <div class="day serif">第二天 · 9月8日</div>
+        <div class="slot"><b>上午 9:00-12:00</b>｜触动 · 客户心理与情绪<br><span class="sdesc">让VIP离不开你，不是品牌，是你。</span></div>
+        <div class="slot"><b>下午 14:00-18:00</b>｜共创 · SOP定稿<br><span class="sdesc">简单好用，照着做社群自己转。</span></div>
+        <div class="slot"><b>晚上 19:00-21:00</b>｜承诺 · 30天行动<br><span class="sdesc">不是"我学了"，是"我做到了"。</span></div>
+      </div>
     </div>
-    <div class="quote serif reveal d3" style="font-size:clamp(16px,4.4vw,22px)">决胜不在课堂，在持续地执行。</div>
   </section>
 
-  <!-- 5b 订货会日程 -->
+  <!-- 5b 订货会日程（含艾安琪智造园图） -->
   <section class="screen cream scroll-y" id="s5b">
-    <div class="ptitle serif dk reveal">订货会 · 后2天</div>
-    <div class="gold-line reveal d1"></div>
-    <img class="venue reveal d2" src="assets/venue.jpg" alt="艾安琪国际智造园">
-    <div class="sched reveal d3">
-      <div class="day serif">第三天 · 9月9日 · 订货会</div>
-      <div class="slot"><b>AIANGEL × MI&amp;GO 360订货</b>｜2027春季新品呈现<br><span class="sdesc">诠释摩登与高级静奢的美学盛宴。</span></div>
-      <div class="day serif">第四天 · 9月10日 · 订货会</div>
-      <div class="slot"><b>AIPALA 360订货</b>｜延续美学盛宴，锁定春季爆款<br><span class="sdesc">订对货，就赢在起跑线。</span></div>
+    <img class="logo-corner" src="assets/logo.png" alt="艾安琪">
+    <div class="panel reveal">
+      <div class="ptitle serif reveal">订货会 · 后2天</div>
+      <div class="gold-line"></div>
+      <img class="hero-img" src="assets/venue.jpg" alt="艾安琪国际智造园">
+      <div class="sched">
+        <div class="day serif">第三天 · 9月9日</div>
+        <div class="slot"><b>AIANGEL × MI&amp;GO 360订货</b>｜2027春季新品<br><span class="sdesc">摩登与高级静奢的美学盛宴。</span></div>
+        <div class="day serif">第四天 · 9月10日</div>
+        <div class="slot"><b>AIPALA 360订货</b>｜锁定春季爆款<br><span class="sdesc">订对货，就赢在起跑线。</span></div>
+      </div>
     </div>
-    <div class="quote serif reveal d4">锁定爆款，赢在2027春季。</div>
   </section>
 
-  <!-- 6 讲师 -->
+  <!-- 6 讲师（形象照 + 介绍 + 完整简介链接 + 授课现场内嵌视频；客服码移至封底） -->
   <section class="screen cream scroll-y" id="s6">
-    <img class="teacher reveal" src="assets/teacher.jpg" alt="艾米老师">
-    <div class="carousel reveal d1" style="min-height:26vh;max-width:400px;margin:1vh auto">
-      <img class="active" src="assets/teacher_live5.jpg" alt="授课现场">
-      <img src="assets/teacher_live1.jpg" alt="授课现场">
-      <img src="assets/teacher_live2.jpg" alt="授课现场">
-      <img src="assets/teacher_live3.jpg" alt="授课现场">
-      <img src="assets/teacher_live4.jpg" alt="授课现场">
+    <img class="logo-corner" src="assets/logo.png" alt="艾安琪">
+    <div class="panel reveal">
+      <img class="teacher" src="assets/teacher.jpg" alt="艾米老师">
+      <div class="tname serif">主讲：艾米老师</div>
+      <div class="trole">人才培养体系专家</div>
+      <div class="t-divider"></div>
+      <div class="tinfo">
+        国家职业一级培训师｜心理咨询师｜高级AI训练师<br>
+        - AI+新零售单店盈利模型教练<br>
+        - 世界500强/政府公共就业中心长期特约讲师<br>
+        - 20年服饰零售行业深耕 · 1000+实战培训 · 10万+学员<br>
+        <b>心理是基础，AI是杠杆，专注零售人才培养</b><br>
+        理念：修己渡人，助人自助
+      </div>
+      <div class="btn-row">
+        <a class="link-btn" href="https://zcnjf0lwkgt6.feishu.cn/wiki/LgTpwY0j0iuGK4kPFvEchQv4nLh" target="_blank" rel="noopener">完整简介 <span class="arrow">→</span></a>
+        <a class="link-btn alt" href="https://weixin.qq.com/sph/ALOmkiBAEp" target="_blank" rel="noopener">授课现场 <span class="arrow">▶</span></a>
+      </div>
     </div>
-    <div class="dots reveal d1"><i class="on"></i><i></i><i></i><i></i><i></i></div>
-    <div class="tname serif reveal d2">艾米老师</div>
-    <div class="trole reveal d1">主讲导师</div>
-    <div class="tinfo reveal d2">
-      国家职业一级培训师｜心理咨询师｜高级AI训练师<br>
-      20年服饰行业深耕 · 1000+实战培训 · 10万+学员<br>
-      AI+新零售单店盈利模型践行导师<br>
-      世界500强 / 政府公共就业中心长期特约讲师<br>
-      <b>心理是根基，AI是杠杆，人才培养是核心</b>
-    </div>
-    <div class="quote serif reveal d4">理念：修己渡人，助人自助</div>
   </section>
 
-  <!-- 7 报名 -->
+  <!-- 7 报名（字少→拉长放大；按钮直达报名链接，无需二维码） -->
   <section class="screen cream scroll-y" id="s7">
-    <div class="ptitle serif dk reveal">报名信息</div>
-    <div class="gold-line reveal d1"></div>
-    <img class="venue reveal d2" src="assets/venue1.jpg" alt="艾安琪国际智造园">
-    <div class="body reveal d2" style="margin:1.2vh auto">
-      活动时间：9月7日–10日<br>活动地点：艾安琪国际智造园<br>
-      参会对象：总部/分公司零售团队、全国加盟商<br>
-      参会人数：约200人 ｜ 报名截止：<span class="goldbig">8月31日</span>
+    <img class="logo-corner" src="assets/logo.png" alt="艾安琪">
+    <div class="panel reveal tall">
+      <div class="ptitle serif reveal">报名信息</div>
+      <div class="gold-line"></div>
+      <div class="body" style="margin:1vh auto">
+        <b style="color:var(--wine);font-size:1.12em">9月7日–10日</b><br>
+        地点：艾安琪国际智造园<br>
+        对象：零售团队 · 全国加盟商<br>
+        约200人 ｜ 截止 <span class="goldbig">8月31日</span>
+      </div>
+      <a class="link-btn" href="https://docs.qq.com/smartsheet/form/aeDGrWxCVgtE%2Ft00i2h%2FvFvkJw?tab=t00i2h" target="_blank" rel="noopener" style="margin-top:2.6vh;padding:9px 18px;font-size:clamp(12px,3.2vw,14px);align-self:center">立即报名 <span class="arrow">→</span></a>
     </div>
-    <img class="qr reveal d3" src="assets/qr_signup.png" alt="报名二维码">
-    <div class="qr-lab reveal d3">微信内直接打开，扫码即可报名</div>
-    <a class="cta dark reveal d4" data-target="s1">返回首页</a>
   </section>
 
-  <!-- 8 结尾 -->
-  <section class="screen" id="s8">
-    <img class="logo reveal" src="assets/logo.png" alt="艾安琪" style="width:50%;margin-bottom:3vh">
-    <div class="subtitle reveal d1" style="font-size:clamp(18px,5vw,26px);color:var(--cream)">9月7日，我们不见不散。</div>
-    <div class="quote serif reveal d2" style="font-size:clamp(22px,6vw,34px);color:#fff;font-weight:700;text-shadow:0 2px 12px rgba(0,0,0,.35)">决战私域，智胜未来。<br>我们，一起赢！</div>
-    <div class="orgs reveal d3">
-      主办：艾安琪时尚集团有限公司<br>
-      协办：简果·新零售商学院<br>
-      承办：广州多泽咨询有限公司
+  <!-- 8 封底（引用设计好的封底图；主办/协办/客服码贴底紧凑排版） -->
+  <section class="screen backcover" id="s8">
+    <img class="logo-corner" src="assets/logo.png" alt="艾安琪" style="filter:drop-shadow(0 2px 8px rgba(0,0,0,.4))">
+    <div class="orgs-bottom reveal">
+      <div class="org-consult">
+        <img class="qr-simple" src="assets/qr_service.png" alt="客服二维码">
+        <div class="qr-lab" style="color:rgba(255,255,255,.92);text-shadow:0 1px 8px rgba(0,0,0,.5)">联系专属顾问</div>
+      </div>
+      <div class="org-line">主办：艾安琪时尚集团有限公司</div>
+      <div class="org-line org-sub">简果·新零售商学院</div>
+      <div class="org-line">协办：广州多泽咨询有限公司</div>
     </div>
-    <img class="qr reveal d4" src="assets/qr_service.png" alt="客服二维码" style="width:34%;max-width:150px;margin-top:2vh">
-    <div class="qr-lab reveal d4">微信扫一扫，联系专属顾问</div>
-    <a class="cta reveal d5" data-target="s7">立即报名</a>
   </section>
 
 </div>
@@ -314,8 +418,8 @@ h1.title{
 <audio id="bgm" loop preload="auto" src="assets/bg_music.mp3"></audio>
 
 <script>
-var APP_VERSION="1.0.0";
-// 倒计时
+var APP_VERSION="1.2.0";
+// 倒计时（2026-09-07）
 (function(){
   var target=new Date('2026-09-07T00:00:00').getTime();
   function pad(n){return n<10?'0'+n:''+n;}
@@ -332,31 +436,21 @@ var APP_VERSION="1.0.0";
   tick();setInterval(tick,1000);
 })();
 
-// 轮播（多组独立播放）
-document.querySelectorAll('.carousel').forEach(function(car){
-  var imgs=car.querySelectorAll('img');
-  if(!imgs.length) return;
-  var sc=car.closest('.screen');
-  var dots=sc?sc.querySelectorAll('.dots i'):[];
-  var i=0;
-  setInterval(function(){
-    imgs[i].classList.remove('active');
-    if(dots[i]) dots[i].classList.remove('on');
-    i=(i+1)%imgs.length;
-    imgs[i].classList.add('active');
-    if(dots[i]) dots[i].classList.add('on');
-  },3200);
-});
-
-// 入场动画
+// 入场动画：列表逐项 + 分隔线生长 + 通用reveal
 (function(){
+  document.querySelectorAll('.list').forEach(function(ul){
+    Array.from(ul.children).forEach(function(li,i){
+      li.classList.add('reveal');
+      li.style.transitionDelay=(0.12+i*0.09)+'s';
+    });
+  });
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('show'); });
-  },{threshold:.2});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  },{threshold:.18});
+  document.querySelectorAll('.reveal, .gold-line').forEach(function(el){ io.observe(el); });
 })();
 
-// 整屏翻页（JS驱动，兼容所有webview）+ 进度条 + 导航
+// 整屏翻页 + 进度条 + 导航
 (function(){
   var h5=document.getElementById('h5');
   var screens=Array.from(document.querySelectorAll('.screen'));
@@ -371,7 +465,6 @@ document.querySelectorAll('.carousel').forEach(function(car){
     setProg(i);
     setTimeout(function(){lock=false;},600);
   }
-  // 触摸翻页：大滑动才翻，长屏先滚内部
   var sy=0, st=0;
   h5.addEventListener('touchstart',function(e){sy=e.touches[0].clientY;st=Date.now();},{passive:true});
   h5.addEventListener('touchend',function(e){
@@ -384,7 +477,6 @@ document.querySelectorAll('.carousel').forEach(function(car){
     }
     go(current+dir);
   },{passive:true});
-  // 滚轮翻页（桌面预览）
   h5.addEventListener('wheel',function(e){
     if(lock) return;
     var dir=e.deltaY>0?1:-1, cur=screens[current];
@@ -394,7 +486,6 @@ document.querySelectorAll('.carousel').forEach(function(car){
     }
     go(current+dir);
   },{passive:true});
-  // 进度条 + 滚动停止吸附到最近屏（短屏）
   h5.addEventListener('scroll',function(){
     var idx=Math.round(h5.scrollTop/h5.clientHeight);
     if(idx!==current){current=idx;setProg(idx);}
@@ -407,7 +498,6 @@ document.querySelectorAll('.carousel').forEach(function(car){
       if(h5.scrollTop!==target) h5.scrollTo({top:target,behavior:'smooth'});
     },140);
   });
-  // 按钮跳屏
   document.querySelectorAll('[data-target]').forEach(function(b){
     b.addEventListener('click',function(){
       var t=document.getElementById(b.getAttribute('data-target'));
