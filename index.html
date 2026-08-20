@@ -46,7 +46,7 @@ body{
 
 /* ===== 封面：用设计好的封面图 ===== */
 .screen.cover{
-  background:url('assets/封面.png') center/cover no-repeat;
+  background:url('assets/封面.jpg') center/cover no-repeat;
   justify-content:flex-end;padding:0 8vw 13vh;
 }
 .screen.cover::before,.screen.cover::after{display:none;}
@@ -75,14 +75,14 @@ body{
 
 /* 封底：引用设计好的封底图 + 主办/协办/咨询靠下排版 */
 .screen.backcover{
-  background:url('assets/封底.png') center/cover no-repeat;
+  background:url('assets/封底.jpg') center/cover no-repeat;
   justify-content:flex-end;padding:0 6vw 1.2vh;
 }
 .screen.backcover::before,.screen.backcover::after{display:none;}
 
 /* ===== 内页：正文背景图 + 红边 + 纯白内容块 ===== */
 .screen.cream{
-  background:url('assets/正文背景.png') center/cover no-repeat;
+  background:url('assets/正文背景.jpg') center/cover no-repeat;
   color:var(--ink);padding-top:8vh;
 }
 .screen.cream::after{ /* 红色边框 */
@@ -415,7 +415,7 @@ body{
 </div>
 <div class="music-btn" id="mbtn">♪</div>
 <div class="music-tip" id="mtip">点击开启音乐</div>
-<audio id="bgm" loop preload="auto" src="assets/bg_music.mp3"></audio>
+<audio id="bgm" loop preload="none" src="assets/bg_music.mp3"></audio>
 
 <script>
 var APP_VERSION="1.2.0";
