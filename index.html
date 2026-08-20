@@ -55,6 +55,10 @@ body{
   position:absolute;top:5vh;left:50%;transform:translateX(-50%);
   width:36%;max-width:150px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35));
 }
+/* 封底 LOGO 保持顶部（不跟随内页整体居中） */
+.screen.backcover .logo-corner{
+  position:absolute;top:3.2vh;left:50%;transform:translateX(-50%);margin-bottom:0;
+}
 .cover-meta{
   position:relative;z-index:3;font-size:clamp(11px,3.45vw,16.5px);font-weight:700;
   color:#fff;letter-spacing:.06em;margin-bottom:1.6vh;
@@ -76,14 +80,14 @@ body{
 /* 封底：引用设计好的封底图 + 主办/协办/咨询靠下排版 */
 .screen.backcover{
   background:url('assets/封底.jpg') center/cover no-repeat;
-  justify-content:flex-end;padding:0 6vw 1.2vh;
+  justify-content:flex-end;padding:0 6vw 11vh;
 }
 .screen.backcover::before,.screen.backcover::after{display:none;}
 
 /* ===== 内页：正文背景图 + 红边 + 纯白内容块 ===== */
 .screen.cream{
   background:url('assets/正文背景.jpg') center/cover no-repeat;
-  color:var(--ink);padding-top:8vh;
+  color:var(--ink);padding:5vh 7vw;
 }
 .screen.cream::after{ /* 红色边框 */
   content:"";position:absolute;inset:3vh 4vw;border:2px solid var(--wine);border-radius:16px;
@@ -100,8 +104,10 @@ body{
 }
 /* 所有 LOGO 居中 */
 .logo-corner{
-  position:absolute;top:3.2vh;left:50%;transform:translateX(-50%);width:32%;max-width:140px;z-index:6;
+  position:relative;top:auto;left:auto;transform:none;
+  width:32%;max-width:140px;z-index:6;
   filter:drop-shadow(0 2px 8px rgba(0,0,0,.25));
+  margin-bottom:2.4vh;
 }
 
 /* 中间内容白底色块 */
@@ -129,18 +135,18 @@ body{
     linear-gradient(var(--wine),var(--wine)) 100% 100%/2px 16px no-repeat;
 }
 /* 字少的页：拉长区域、居中、放大 */
-.panel.tall{min-height:60vh;padding:8vh 8vw;display:flex;flex-direction:column;justify-content:center;}
+.panel.tall{padding:5.5vh 8vw;display:flex;flex-direction:column;justify-content:center;}
 /* 第3屏紧凑面板：整体缩小不挡LOGO，字小行距小 */
 .panel.compact{padding:4vh 5.5vw;}
 .panel.compact .ptitle{font-size:clamp(24px,6.6vw,36px);margin-bottom:1vh;}
 .panel.compact .list{margin:1vh auto;}
-.panel.compact .list li{font-size:clamp(13px,3.6vw,16px);line-height:1.5;padding:.8vh 0 .8vh 1.8em;}
+.panel.compact .list li{font-size:clamp(13px,3.6vw,16px);line-height:1.35;padding:.5vh 0 .5vh 1.8em;font-weight:700;}
 .panel.compact .list li::before{top:1.2vh;}
 .panel.compact .gold-line{margin:1.6vh auto;}
 .panel.compact .quote.keymax{font-size:clamp(16px,4.8vw,26px);margin:1.6vh 0;}
-.panel.tall .body{font-size:clamp(17px,5vw,23px);}
+.panel.tall .body{font-size:clamp(15px,4.4vw,20px);line-height:1.75;}
 .panel.tall .quote{font-size:clamp(20px,5.6vw,28px);}
-.screen.scroll-y{overflow-y:auto;justify-content:flex-start;padding-top:8vh;-webkit-overflow-scrolling:touch;}
+.screen.scroll-y{overflow-y:auto;justify-content:flex-start;padding-top:5vh;-webkit-overflow-scrolling:touch;}
 .screen.scroll-y::after{inset:2.2vh 3.4vw;}
 
 /* 内页文字（放大） */
@@ -152,7 +158,7 @@ body{
 .panel .gold-line{background:linear-gradient(90deg,transparent,var(--wine),transparent);}
 .gold-line{width:54px;height:2px;margin:2.4vh auto;transform:scaleX(0);transform-origin:center;transition:transform 1s cubic-bezier(.22,.68,.3,1);}
 .gold-line.show{transform:scaleX(1);}
-.body{font-size:clamp(16px,4.6vw,21px);line-height:1.95;color:rgba(58,20,20,.92);position:relative;z-index:3;margin:1vh 0;}
+.body{font-size:clamp(15px,4.2vw,19px);line-height:1.75;color:rgba(58,20,20,.92);position:relative;z-index:3;margin:1vh 0;font-weight:700;}
 .quote{font-size:clamp(19px,5.4vw,26px);color:var(--wine);line-height:1.5;margin:2.4vh 0;letter-spacing:.03em;position:relative;z-index:3;font-weight:700;}
 .quote.keymax{font-size:clamp(18px,5.6vw,30px);font-weight:900;color:var(--wine);line-height:1.3;letter-spacing:.02em;margin:2.6vh 0;white-space:nowrap;}
 /* 第2页超大关键词 */
@@ -163,7 +169,7 @@ body{
 
 /* 列表：关键字放大 */
 .list{text-align:left;max-width:560px;margin:1.6vh auto;position:relative;z-index:3;}
-.list li{list-style:none;font-size:clamp(15px,4.2vw,19px);line-height:1.68;color:rgba(58,20,20,.92);
+.list li{list-style:none;font-size:clamp(15px,4.2vw,19px);line-height:1.5;color:rgba(58,20,20,.92);font-weight:700;
   padding:1.3vh 0 1.3vh 2em;position:relative;border-bottom:1px solid rgba(224,42,37,.12);
   opacity:0;transform:translateX(-24px);transition:opacity .7s ease,transform .7s ease;}
 .list li.show{opacity:1;transform:translateX(0);}
@@ -173,15 +179,15 @@ body{
 /* 日程 */
 .sched{text-align:left;width:100%;margin:1vh auto;position:relative;z-index:3;}
 .day{font-size:clamp(16px,4.4vw,21px);color:var(--wine);margin:2.4vh 0 1vh;letter-spacing:.03em;}
-.slot{font-size:clamp(14px,3.8vw,17px);line-height:1.7;color:rgba(58,20,20,.9);padding:.8vh 0 .8vh 1.1em;border-left:2px solid var(--coral);margin:.6vh 0;}
+.slot{font-size:clamp(14px,3.8vw,17px);line-height:1.45;color:rgba(58,20,20,.9);padding:.5vh 0 .5vh 1.1em;border-left:2px solid var(--coral);margin:.5vh 0;font-weight:700;}
 .slot b{color:var(--wine);}
-.sdesc{display:block;font-size:clamp(12px,3.2vw,15px);line-height:1.5;color:rgba(58,20,20,.62);margin-top:.4vh;}
+.sdesc{display:block;font-size:clamp(12px,3.2vw,15px);line-height:1.5;color:rgba(58,20,20,.62);margin-top:.4vh;font-weight:600;}
 
 /* 武器卡片（2x2 关键字放大） */
 .weapons{display:flex;flex-direction:column;gap:1.8vh;max-width:560px;margin:1.4vh auto;position:relative;z-index:3;}
 .weapon{background:rgba(224,42,37,.05);border:1px solid rgba(224,42,37,.16);border-radius:14px;padding:2.2vh 3vw;text-align:left;}
 .weapon b{display:block;font-size:clamp(18px,5vw,24px);color:var(--wine);margin-bottom:.6vh;line-height:1.25;}
-.weapon span{font-size:clamp(12px,3.2vw,14px);line-height:1.5;color:rgba(58,20,20,.82);}
+.weapon span{font-size:clamp(12px,3.2vw,14px);line-height:1.5;color:rgba(58,20,20,.82);font-weight:600;}
 
 /* 形象照 / 图 */
 .teacher{width:58%;max-width:240px;border-radius:18px;border:2px solid #B98E3E;position:relative;z-index:3;
@@ -215,7 +221,7 @@ body{
   background:linear-gradient(135deg,#7c0d0d 0%,#e02a25 55%,#e46549 110%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#7c0d0d;}
 .trole{font-size:clamp(13px,3.6vw,16px);color:var(--coral);margin-bottom:1.6vh;letter-spacing:.04em;position:relative;z-index:3;}
-.tinfo{font-size:clamp(12px,3.2vw,14px);line-height:1.7;color:rgba(58,20,20,.9);max-width:100%;margin:0 auto 1.4vh;position:relative;z-index:3;}
+.tinfo{font-size:clamp(12px,3.2vw,14px);line-height:1.7;color:rgba(58,20,20,.9);max-width:100%;margin:0 auto 1.4vh;position:relative;z-index:3;font-weight:700;}
 .tinfo b{color:var(--wine);font-size:1.12em;}
 /* 讲师页分隔线 + 封底靠下排版 */
 .t-divider{width:46px;height:2px;background:linear-gradient(90deg,transparent,var(--coral),transparent);margin:1.4vh auto;position:relative;z-index:3;}
@@ -267,7 +273,6 @@ body{
       <div class="cd-box"><span class="cd-num" id="cd-m">00</span><span class="cd-lab">分</span></div>
       <div class="cd-box"><span class="cd-num" id="cd-s">00</span><span class="cd-lab">秒</span></div>
     </div>
-    <div class="cd-tip reveal d5">距盛大开幕</div>
     <div class="cover-tags reveal d5">
       <div class="cover-tag-row">私域重构 ｜ 智能运营 ｜ 增长实战</div>
       <div class="cover-tag-sub">邀您共赴未来零售新局</div>
@@ -367,7 +372,7 @@ body{
         国家职业一级培训师｜心理咨询师｜高级AI训练师<br>
         - AI+新零售单店盈利模型教练<br>
         - 世界500强/政府公共就业中心长期特约讲师<br>
-        - 20年服饰零售行业深耕 · 1000+实战培训 · 10万+学员<br>
+        - 20年服饰零售行业深耕<br>· 1000+实战培训 · 10万+学员<br>
         <b>心理是基础，AI是杠杆，专注零售人才培养</b><br>
         理念：修己渡人，助人自助
       </div>
