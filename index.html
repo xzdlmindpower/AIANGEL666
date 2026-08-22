@@ -423,7 +423,7 @@ body{
 <audio id="bgm" loop preload="none" src="assets/bg_music.mp3"></audio>
 
 <script>
-var APP_VERSION="1.2.0";
+var APP_VERSION="1.2.1";
 // 倒计时（2026-09-07）
 (function(){
   var target=new Date('2026-09-07T00:00:00').getTime();
@@ -511,22 +511,53 @@ var APP_VERSION="1.2.0";
   });
 })();
 
-// 音乐
+// 音乐：微信内自动播放 + 非微信首次手势兜底 + 手动开关
 (function(){
   var btn=document.getElementById('mbtn'),audio=document.getElementById('bgm'),tip=document.getElementById('mtip');
-  var started=false;
-  tip.classList.add('show');setTimeout(function(){tip.classList.remove('show');},3200);
-  btn.addEventListener('click',function(){
-    if(!started){
-      audio.play().then(function(){
-        btn.classList.add('playing');tip.textContent='播放中';tip.classList.add('show');
-        setTimeout(function(){tip.classList.remove('show');},1500);started=true;
-      }).catch(function(){tip.textContent='音频加载中…';tip.classList.add('show');setTimeout(function(){tip.classList.remove('show');},1800);});
-    }else{
-      if(audio.paused){audio.play();btn.classList.add('playing');}
-      else{audio.pause();btn.classList.remove('playing');}
-    }
+  var started=false;                 // 是否已成功启动（自动或手势），避免重复触发
+  function syncUI(){ if(audio.paused) btn.classList.remove('playing'); else btn.classList.add('playing'); }
+  var tipT;
+  function showTip(t,ms){ tip.textContent=t; tip.classList.add('show'); clearTimeout(tipT); tipT=setTimeout(function(){tip.classList.remove('show');},ms||1600); }
+  showTip('点击开启音乐',3200);
+
+  function tryStart(){
+    if(started) return;
+    started=true;
+    var p=audio.play();
+    if(p&&p.then){
+      p.then(function(){ syncUI(); tip.classList.remove('show'); })
+       .catch(function(){ started=false; });   // 被浏览器拦截→退回等待首次手势
+    } else { syncUI(); }
+  }
+
+  // 1) 微信内置浏览器：桥就绪即自动播放（易企秀同款机制）
+  if(window.WeixinJSBridge){ tryStart(); }
+  else{ document.addEventListener('WeixinJSBridgeReady', tryStart, false); }
+
+  // 2) 非微信环境兜底：用户首次手势（点音乐按钮除外）触发播放
+  function onGesture(e){
+    if(started) return;
+    if(e && e.target && e.target.closest && e.target.closest('#mbtn')) return; // 点按钮交给按钮处理
+    tryStart(); removeGesture();
+  }
+  function removeGesture(){
+    document.removeEventListener('touchstart', onGesture);
+    document.removeEventListener('click', onGesture);
+    document.removeEventListener('keydown', onGesture);
+  }
+  document.addEventListener('touchstart', onGesture, {passive:true});
+  document.addEventListener('click', onGesture);
+  document.addEventListener('keydown', onGesture);
+
+  // 3) 手动按钮：首点=启动；之后=切换暂停/播放
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    if(!started){ tryStart(); removeGesture(); return; }
+    if(audio.paused){ audio.play().then(syncUI).catch(function(){ showTip('音频加载中…'); }); }
+    else{ audio.pause(); syncUI(); }
   });
+  audio.addEventListener('play', syncUI);
+  audio.addEventListener('pause', syncUI);
 })();
 </script>
 </body>
